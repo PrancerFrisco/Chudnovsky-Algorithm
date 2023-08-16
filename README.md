@@ -5,4 +5,4 @@ It uses an algorithm known as the 'Chudnovsky algorithm' (see on wikipedia: http
 Needs mpmath module - use 'pip install mpmath' to install the module.
 Uses the math and time modules as well.
 
-This is the fastest code available (to my knowledge) **in Python** for the Cudnovsky algorithm.
+This is the fastest code available (to my knowledge) in ***Python*** for the hCudnovsky algorithm.
