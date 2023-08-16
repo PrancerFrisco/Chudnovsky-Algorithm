@@ -5,4 +5,4 @@ It uses an algorithm known as the 'Chudnovsky algorithm' (see on wikipedia: http
 Needs mpmath module - use 'pip install mpmath' to install the module.
 Uses the math and time modules as well.
 
-This is the fastest code available (to my knowledge) in ***Python*** for the Chudnovsky algorithm.
+This is in no way an efficient way of calculating pi compared to other languages, I also made it.
