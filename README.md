@@ -5,4 +5,4 @@ It uses an algorithm known as the 'Chudnovsky algorithm' (see on wikipedia: http
 Needs mpmath module - use 'pip install mpmath' to install the module.
 Uses the math and time modules as well.
 
-It took 14.69 seconds for it to calculate pi to 100,000 digits.
+It took around 14.5 seconds for it to calculate pi to 100,000 digits.
