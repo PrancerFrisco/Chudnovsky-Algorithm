@@ -1,10 +1,8 @@
 from mpmath import mp, mpf, sqrt
+from numpy import power
 from time import time
 
 print("Chudnovsky algorithm")
-
-
-
 
 
 # THE FUNCTION
@@ -17,21 +15,23 @@ def chudnovsky(digits):
     K = mpf(-6)
     a1 = mpf(0)
 
-    const1 = 545140134
-    const2 = -262537412640768000
+    L_const = 545140134
+    X_const = -262537412640768000
     for q in range(digits):
         e = (M * L) / X
         if a1 + e == a1:  # if the value of a1 is the same as it was before the latest a1 += e. i.e, the value added is so small that it doesn't get computed
-            break
+            result = f"after {q} iterations: {str(C * a1 ** -1)[:digits+1]}" # cuts off extra potentially inaccurate digits
+            mp.dps = 10
+            return result
         a1 += e
-        L += const1
-        X *= const2
+        L += L_const
+        X *= X_const
         K += 12
-        M *= (K**3 - 16*K) / (mpf(q+1)**3)
-
-    print()
-    return str(C * a1 ** -1)[:digits+1]  # cuts off extra potentially inaccurate digits
-
+        M_operation = (power(K, 3) - 16*K) / (q+1)**3
+        M *= M_operation
+    result = str(C * a1 ** -1)[:digits+1] # incase it doesn't break out of the previous loop
+    mp.dps = 10
+    return result
 
 
 
@@ -47,6 +47,7 @@ while True: # loops until an integer is entered
 
 
 start = time()
+print()
 print(chudnovsky(user_input))
 print()
 print(f"Elapsed time: [{time() - start}s]")
